@@ -9,6 +9,7 @@ from pandas import DataFrame
 #filename = "/Users/shruti/PycharmProjects/firstProject/Fasta.txt"
 filename = "/Users/shruti/GIT/Python/rosalind_cons.txt"
 
+
 try:
     sequence_file = open(filename)
 except IOError:
@@ -17,19 +18,31 @@ except IOError:
 # extract sequences and store as a list
 dna_list = []
 dna_string = ""
+count = 0
 
 for line in sequence_file:
     # discard any newline character at the end
     line = line.rstrip()
 
-    # distinguish header from sequence. if the line does not start with ">", it is a seqeunce
+    # distinguish header from sequence.
+    # unless the line does not start with ">", add it to dna_string
     if re.search('^[^>]\w',line):
         dna_string = dna_string + line
+    # when you encounter ">", add the dna_string to dna_list.
     else:
+        # number of sequences; count occurrence of ">"
+        count += 1
         if len(dna_string) != 0:
             dna_list.append(dna_string)
+            # now empty the dna_string to store the next sequence
             dna_string = ""
 
+# the last sequence will not be followed by a >, the dna_string that
+# contains the last sequence will not be appended to dna_list.
+if len(dna_string) != 0:
+    dna_list.append(dna_string)
+
+print "total number of sequences: %s" % count
 print "DNA sequences: %s \n" % dna_list
 
 rows = len(dna_list)
