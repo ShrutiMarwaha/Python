@@ -13,15 +13,17 @@ file = "/Users/shruti/Downloads/rosalind_grph.txt"
 
 print file
 
+# function to extract first "k" characters from a sequence
 def get_prefix(seq, k):
     return seq[:k]
 
+# function to extract last "k" characters from a sequence
 def get_suffix(seq, k):
     l = len(seq)
     return seq[(l-k):l]
 
 def OverlapGraph(filename,k):
-
+    # load the file
     try:
         sequence_file = open(filename,"r")
     except IOError:
