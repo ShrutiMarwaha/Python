@@ -9,7 +9,7 @@
 
 import re
 
-file = "/Users/shruti/Downloads/rosalind_grph.txt"
+file = "/Users/shruti/git/Python/rosalind_grph.txt"
 
 print file
 
