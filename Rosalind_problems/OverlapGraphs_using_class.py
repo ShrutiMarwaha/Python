@@ -9,9 +9,8 @@
 
 import re
 
-file = "/Users/shruti/PycharmProjects/firstProject/Fasta_overlap_graphs.txt"
-#file = "/Users/shruti/Downloads/rosalind_grph.txt"
-#file = "/Users/shruti/Downloads/test.txt"
+#file = "/Users/shruti/PycharmProjects/firstProject/Fasta_overlap_graphs.txt"
+file = "/Users/shruti/git/Python/datasets/rosalind_grph.txt"
 
 # define a class called Sequence which will contain sequence identifier and the sequence
 class Sequence:
