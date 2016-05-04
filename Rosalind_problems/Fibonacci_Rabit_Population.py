@@ -6,7 +6,7 @@
 # any given month will contain the rabbits that were alive the previous month, plus any new offspring.
 # the number of offspring in any month is equal to the number of rabbits that were alive two months prior.
 
-def rabbit_fib(n,k=1):
+def rabbit_fib(n,k=1,m):
     # Fn-2
     first_gen = 1
     # Fn-1
@@ -25,5 +25,8 @@ def rabbit_fib(n,k=1):
 
     return "number of rabbits in each generation: %s and after %sth generation: %s" % (RabbitFibSeries, n, FinalPopulation)
 
-print rabbit_fib(5,3)
-print rabbit_fib(29,2)
+print rabbit_fib(6,1,3)
+#print rabbit_fib(29,2)
+
+
+
