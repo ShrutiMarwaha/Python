@@ -7,7 +7,7 @@ from pandas import DataFrame
 
 # read the input file
 #filename = "/Users/shruti/PycharmProjects/firstProject/Fasta.txt"
-filename = "/Users/shruti/GIT/Python/rosalind_cons.txt"
+filename = "/Users/shruti/GIT/Python/datasets/rosalind_cons.txt"
 
 
 try:
@@ -37,7 +37,7 @@ for line in sequence_file:
             # now empty the dna_string to store the next sequence
             dna_string = ""
 
-# the last sequence will not be followed by a >, the dna_string that
+# since the last sequence will not be followed by a >, the dna_string that
 # contains the last sequence will not be appended to dna_list.
 if len(dna_string) != 0:
     dna_list.append(dna_string)
