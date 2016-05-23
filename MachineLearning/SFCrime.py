@@ -24,7 +24,7 @@ print(features_train.shape)
 print(features_test.shape)
 print(features_validation.shape)
 
-model = LogisticRegression()
+model = LogisticRegression(n_jobs=-1)
 model.fit(features_train, outcomes_train)
 
 # make predictions
@@ -39,15 +39,11 @@ model.coef_
 ############### run Cross Validation on training data
 kf = KFold(n=len(features_train), n_folds=10, random_state=0)
 
-for cv_train_index, cv_test_index in kf:
-    X_train, X_test = features_train.iloc[cv_train_index,], outcomes_train[cv_train_index,]
-    y_train, y_test = features_train.iloc[cv_test_index,], outcomes_train[cv_test_index,]
-
 scores = []
 for cv_train_index, cv_test_index in kf:
     model_fit = model.fit(features_train.iloc[cv_train_index,], outcomes_train[cv_train_index,])
     #print(model_fit.score(features_train.iloc[cv_test_index,],outcomes_train.iloc[cv_test_index,]))
-    scores.append(model_fit).score(features_train.iloc[cv_test_index,],outcomes_train[cv_test_index,])
+    scores.append(model_fit.score(features_train.iloc[cv_test_index,],outcomes_train[cv_test_index,]))
 
 scores
 np.mean(scores)
