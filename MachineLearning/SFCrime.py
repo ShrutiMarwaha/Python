@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from numpy import genfromtxt
 from sklearn.cross_validation import train_test_split
+from sklearn.cross_validation import cross_val_score
 from sklearn.cross_validation import KFold
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -52,7 +53,7 @@ model.coef_
 features_train, features_test, outcomes_train, outcomes_test = train_test_split(features,outcomes,test_size=0.25,random_state=0)
 
 # Cross Validation on training data
-# scores = cross_validation.cross_val_score(model, features_train, outcomes_train, cv=10)
+# scores = cross_val_score(model, features_train, outcomes_train, cv=3)
 # TODO: 10 fold will not work as one of the class has only 4 samples. cv< minimum no.of samples in each class. So either remove such samples or use KFold
 # print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
 
@@ -67,8 +68,11 @@ scores
 np.mean(scores)
 
 # using grid search
-from sklearn import grid_search
+model = LogisticRegression(n_jobs=-1)
+
+from sklearn.grid_search import GridSearchCV
+# dictionary with key is parameter name and value is values you want to try
 param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100, 1000] }
-ml_algo = LogisticRegression()
-model = grid_search.GridSearchCV(ml_algo, param_grid)
-model.fit(features_train, outcomes_train)
+#grid = grid_search.GridSearchCV(model, param_grid)
+grid = GridSearchCV(model, param_grid, cv=3, scoring='accuracy') # grid seach with cross validation
+grid.fit(features_train, outcomes_train)
