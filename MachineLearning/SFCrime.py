@@ -106,7 +106,7 @@ print model.best_estimator_
 model = LogisticRegression(solver='lbfgs',multi_class='multinomial',n_jobs=-1,random_state=0,C=1)
 # model = RandomForestClassifier(n_estimators=200,max_depth=15,n_jobs=-1,random_state=0)
 # model = BernoulliNB(alpha=300)
-# model = GradientBoostingClassifier(random_state=0)
+# TODO: model = GradientBoostingClassifier(random_state=0)
 
 # make predictions. GridSearchCV automatically refits the best model
 predicted = model.predict(features_test)
