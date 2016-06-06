@@ -1,11 +1,14 @@
-from sklearn import datasets
 import numpy as np
 import matplotlib.pyplot as plt
+import random
+
+from sklearn import datasets
 from sklearn.decomposition import PCA
 from sklearn.cross_validation import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix
-import random
+from sklearn.linear_model import LogisticRegression
+
 
 # input data for scikit is n_samples, n_features array where samples are rows and features are columns.
 iris = datasets.load_iris()
@@ -13,7 +16,7 @@ print (iris.keys())
 #print (iris.values())
 
 # model features
-print ("features: %s \n") % iris.feature_names
+print ("features: \n %s \n") % iris.feature_names
 iris_features = iris.data
 print "type of iris features %s" % type(iris_features)
 print "dimension of iris features %s" % (iris_features.shape,)
@@ -44,15 +47,18 @@ reduced_iris_features = model_pca.transform(iris_features)
 #print "dimension of iris features %s" % (iris_features.shape,)
 print "dimension of reduced features %s \n" % (reduced_iris_features.shape,)
 
+# Data Splitting
 random.seed(1)
 training_features, test_features, training_classes, test_classes = train_test_split(iris_features, iris_classes, train_size=0.60)
 print "dimension of training set: %s" % (training_features.shape,)
 print "dimension of test set: %s \n" % (test_features.shape,)
 
+# a multiclass regression
+#model = LogisticRegression()
+
 # create Support Vector Classification model
 #SVC?
 model = SVC()
-#print (model)
 
 # fit the model
 model.fit(training_features,training_classes)
@@ -62,8 +68,9 @@ model.fit(training_features,training_classes)
 result = model.predict([[3,5,4,2],])
 print(iris.target_names[result])
 
-print (model.predict(iris_features[::10])) # [::y] prints every yth element from the list / array
-print ((iris_classes[::10]))
+print (model.predict(iris_features[::30])) # [::y] prints every yth element from the list / array
+# print np.around(model.predict_proba(iris_features[::30]), 2)
+print ((iris_classes[::30]))
 
 predicted_classes = model.predict(test_features)
 # numpy.all : Test whether all array elements along a given axis evaluate to True.
