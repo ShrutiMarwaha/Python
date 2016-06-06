@@ -3,7 +3,8 @@ import re
 import numpy as np
 from Sequence import SequenceUtils
 
-filename = "/Users/shruti/Documents/Python/DNAfile.txt"
+#filename = "/Users/shruti/Documents/Python/DNAfile.txt"
+filename = "/Users/shruti/git/Python/Rosalind_problems/datasets/DNAfile.txt"
 file_object = open(filename, 'r')
 file_content = file_object.read()
 # remove white space from starting and end of the file

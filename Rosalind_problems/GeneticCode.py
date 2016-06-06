@@ -3,7 +3,7 @@ rna_string = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
 
 ## convert the codon table into a dictionary
 codon_table_dict = {}
-with open("/Users/shruti/PycharmProjects/firstProject/RNA_codon_table.txt") as f:
+with open("/Users/shruti/git/Python/datasets/RNA_codon_table.txt") as f:
     for line in f:
         line = line.strip()
 
