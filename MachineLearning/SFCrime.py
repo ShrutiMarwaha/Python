@@ -52,7 +52,7 @@ print(roc_auc_score(expected, predicted)) # predicted outputs have to be binariz
 print(accuracy_score(expected, predicted))
 
 ###################### Grid Search with Cross Validation ######################
-# to run k-fold cross validation, remove classes which are less than "k" samples.
+# to run k-fold cross validation, remove classes which have less than "k" samples.
 # cv< minimum no.of samples in each class. So either remove such samples or use KFold
 outcomes_frequency.head()
 outcomes_frequency[outcomes_frequency < 10 ]
@@ -107,6 +107,7 @@ model = LogisticRegression(solver='lbfgs',multi_class='multinomial',n_jobs=-1,ra
 # model = RandomForestClassifier(n_estimators=200,max_depth=15,n_jobs=-1,random_state=0)
 # model = BernoulliNB(alpha=300)
 # TODO: model = GradientBoostingClassifier(random_state=0)
+model.fit(features_train, outcomes_train)
 
 # make predictions. GridSearchCV automatically refits the best model
 predicted = model.predict(features_test)
