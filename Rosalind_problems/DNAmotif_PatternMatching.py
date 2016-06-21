@@ -1,5 +1,12 @@
-# Given two strings ss and tt, tt is a substring of ss if tt is contained as a contiguous collection of symbols in ss (as a result, tt must be no longer than ss).
 def substring_index(string,pattern):
+    '''
+    Given two strings ss and tt, tt is a substring of ss if tt is contained as a contiguous collection of symbols in ss
+    (as a result, tt must be no longer than ss).
+
+    :param string: DNA string ss
+    :param pattern: DNA string tt
+    :return: All locations of tt as a substring of ss.
+    '''
     l = len(pattern)
     if l>len(string):
         print("pattern cant be longer than string")
