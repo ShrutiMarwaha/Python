@@ -19,8 +19,9 @@ def get_prefix(seq, k):
 
 # function to extract last "k" characters from a sequence
 def get_suffix(seq, k):
-    l = len(seq)
-    return seq[(l-k):l]
+    # l = len(seq)
+    # return seq[(l-k):l]
+    return seq[-k:]
 
 def OverlapGraph(filename,k):
     # load the file
