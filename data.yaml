@@ -1,0 +1,13 @@
+name: ravi
+
+age: 18
+
+# companies that i have worked for
+companies:
+- ibm
+- cchmc
+- a9
+
+hobbies:
+  name: biking
+  type: outdoor

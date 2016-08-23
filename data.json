@@ -1,0 +1,12 @@
+{
+    "name": "ravi",
+    "age": 18,
+    "companies": [
+        "ibm",
+        "cchmc",
+        "a9"
+    ],
+    "hobbies": {
+        "name": "biking"
+    }
+}
